@@ -135,6 +135,55 @@ networks:
 
 ```
 
+
+<br>
+
+
+
+
+ - Service Definition:
+       *The file defines four distinct services using the Apache HTTP server (httpd), each configured to serve different HTML content on specific ports. These services (httpd5000, httpd6000, httpd7000, and 
+        httpd8000) are isolated containers running the same base image (httpd:latest), but each one serves a unique HTML page.*
+
+ - Image and Container Naming:
+   *Each service uses the same httpd image, ensuring consistency in the environment setup. The container name for each service is explicitly defined (httpd5000, httpd6000, etc.), which helps 
+    with identification and management, especially when you are working with multiple containers*
+
+  - Port Mapping:
+     *The ports section maps the host machine’s ports to the container’s default Apache port (80). For instance, port 5000 on the host maps to port 80 inside the httpd5000 container. This 
+      exposes different web applications running in separate containers, each bound to a unique port for access.*
+
+  - Volume Mapping:
+      *The volumes section ensures that specific HTML files on the host system (e.g., ./welcome_hpcsa.html) are mounted into the container’s file system. The mapping directs these files to 
+      Apache’s default directory for serving HTML content (/usr/local/apache2/htdocs/index.html). This enables the serving of custom content without modifying the container's internal setup.*
+
+   - Networking Configuration:
+       *The containers are all connected to the same bridge network (webnet), allowing them to communicate with each other if needed. The use of a custom network provides network isolation 
+        from other containers or external systems, enhancing security and organization in a multi-container setup.*
+
+   - Network Driver:
+      *The bridge network driver is used, which is Docker's default for containers running in isolation. This creates a virtual private network for the containers, ensuring that they can 
+       communicate internally, but remain isolated from the external environment unless explicitly exposed through ports.*
+
+   - Scalability and Extensibility:
+       *This configuration is easy to scale. You could add more httpd services, adjust the volumes for different HTML content, or modify the ports to expand the deployment. This flexibility 
+       makes Docker Compose a powerful tool for managing containerized applications.*
+
+   - Separation of Concerns:
+       *By using separate containers for different services, the setup maintains logical isolation of the applications, which is crucial for troubleshooting, scalability, and maintaining 
+        clean separation between services, even if they are based on the same underlying technology (Apache HTTP server in this case).*
+
+*In summary, this file outlines an advanced configuration for serving multiple web applications in an isolated, containerized environment. It leverages Docker's powerful networking and volume management features to ensure efficiency and flexibility in how web applications are served, all while maintaining simplicity and scalability.*
+
+
+
+
+
+
+
+
+<br>
+
 ### Step 4. Start the Containers
  *Run the following command in the directory containing docker-compose.yml:*
 

@@ -293,7 +293,7 @@ docker-compose down
 <br>
 
 
-![Alt text for image](screenshots/5.png)
+![Alt text for image](screenshots/6.png)
 
 <br>
 <br>
@@ -304,7 +304,7 @@ docker-compose down
 <br>
 
 
-![Alt text for image](screenshots/6.png)
+![Alt text for image](screenshots/7.png)
 
 <br>
 <br>
@@ -315,21 +315,14 @@ docker-compose down
 <br>
 
 
-![Alt text for image](screenshots/7.png)
-
-<br>
-<br>
-
-
-8.
-<br>
-<br>
-
-
 ![Alt text for image](screenshots/8.png)
 
 <br>
 <br>
+
+
+
+
 
 
 
